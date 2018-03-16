@@ -66,8 +66,15 @@ def plot_latency(theFile):
     leg=plt.legend(bbox_to_anchor=(0., 1.02, 1., .102), loc=3, ncol=4, mode="expand", borderaxespad=0., fontsize=19)
     plt.subplots_adjust(left=0.12,bottom=0.18, right=0.9, top=0.85, wspace=0.2,hspace=0.2)
     plt.suptitle('LATENCY '+theFile, fontsize=24)
+    
+    # save the PDF - name convention is jobID_stagename.PDF
     basenm=os.path.basename(theFile)
-    fname=basenm.split('.')[0]+'_latency.pdf'
+# strips off the final "/" if its there
+    pathnm=os.path.dirname(theFile)
+# grab the tail of the path and prepend it to the PDF fname       
+    prepend=os.path.basename(pathnm)
+    fname=prepend+'_'+basenm.split('.')[0]+'_latency.pdf'
+# write out the PDF
     plt.savefig(fname, format='pdf', dpi=1000)
     print('> Created PDF chart: '+fname)
 #   plt.savefig(sys.argv[2]+'.eps', format='eps', dpi=1000)
