@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workload name="hybrid" description="RGW failure testing" config="">
+    <auth type="swauth" config="username=johndoe:swift;password=xN7Dd88qxCCULdtH3qmsybuX1TNYpUWncfipuBT6;auth_url=http://localhost:5000/auth/1.0"/>
+    <storage type="swift" config="timeout=900000"/>
+    <workflow config="">
+        <workstage name="no_failure" closuredelay="30" config="">
+            <auth type="swauth" config="username=johndoe:swift;password=xN7Dd88qxCCULdtH3qmsybuX1TNYpUWncfipuBT6;auth_url=http://localhost:5000/auth/1.0"/>
+            <storage type="swift" config="timeout=900000"/>
+            <work name="phase1" type="normal" workers="240" interval="5"
+                division="none" runtime="4802" rampup="0" rampdown="0"
+                afr="200000" totalOps="0" totalBytes="0" config="">
+                <auth type="swauth" config="username=johndoe:swift;password=xN7Dd88qxCCULdtH3qmsybuX1TNYpUWncfipuBT6;auth_url=http://localhost:5000/auth/1.0"/>
+                <storage type="swift" config="timeout=900000"/>
+                <operation type="read" ratio="60" division="none"
+                    config="containers=u(4,100);objects=u(1,43397)" id="op1"/>
+                <operation type="list" ratio="10" division="none"
+                    config="containers=u(4,100);objects=u(1,43397)" id="op2"/>
+                <operation type="write" ratio="20" division="none"
+                    config="containers=c(1);objects=s(43398,433970);sizes=h(4|4|34,64|64|33,65536|65536|33)KB" id="op3"/>
+                <operation type="delete" ratio="10" division="none"
+                    config="containers=c(1);objects=s(1,433970)" id="op4"/>
+            </work>
+        </workstage>
+        <workstage name="osd_failure" closuredelay="30" config="">
+            <auth type="swauth" config="username=johndoe:swift;password=xN7Dd88qxCCULdtH3qmsybuX1TNYpUWncfipuBT6;auth_url=http://localhost:5000/auth/1.0"/>
+            <storage type="swift" config="timeout=900000"/>
+            <work name="phase2" type="normal" workers="240" interval="5"
+                division="none" runtime="4802" rampup="0" rampdown="0"
+                afr="200000" totalOps="0" totalBytes="0" config="">
+                <auth type="swauth" config="username=johndoe:swift;password=xN7Dd88qxCCULdtH3qmsybuX1TNYpUWncfipuBT6;auth_url=http://localhost:5000/auth/1.0"/>
+                <storage type="swift" config="timeout=900000"/>
+                <operation type="read" ratio="60" division="none"
+                    config="containers=u(4,100);objects=u(1,43397)" id="op1"/>
+                <operation type="list" ratio="10" division="none"
+                    config="containers=u(4,100);objects=u(1,43397)" id="op2"/>
+                <operation type="write" ratio="20" division="none"
+                    config="containers=c(2);objects=s(43398,433970);sizes=h(4|4|34,64|64|33,65536|65536|33)KB" id="op3"/>
+                <operation type="delete" ratio="10" division="none"
+                    config="containers=c(2);objects=s(1,433970)" id="op4"/>
+            </work>
+        </workstage>
+        <workstage name="node_failure" closuredelay="30" config="">
+            <auth type="swauth" config="username=johndoe:swift;password=xN7Dd88qxCCULdtH3qmsybuX1TNYpUWncfipuBT6;auth_url=http://localhost:5000/auth/1.0"/>
+            <storage type="swift" config="timeout=900000"/>
+            <work name="phase3" type="normal" workers="240" interval="5"
+                division="none" runtime="4802" rampup="0" rampdown="0"
+                afr="200000" totalOps="0" totalBytes="0" config="">
+                <auth type="swauth" config="username=johndoe:swift;password=xN7Dd88qxCCULdtH3qmsybuX1TNYpUWncfipuBT6;auth_url=http://localhost:5000/auth/1.0"/>
+                <storage type="swift" config="timeout=900000"/>
+                <operation type="read" ratio="60" division="none"
+                    config="containers=u(4,100);objects=u(1,43397)" id="op1"/>
+                <operation type="list" ratio="10" division="none"
+                    config="containers=u(4,100);objects=u(1,43397)" id="op2"/>
+                <operation type="write" ratio="20" division="none"
+                    config="containers=c(3);objects=s(43398,433970);sizes=h(4|4|34,64|64|33,65536|65536|33)KB" id="op3"/>
+                <operation type="delete" ratio="10" division="none"
+                    config="containers=c(3);objects=s(1,433970)" id="op4"/>
+            </work>
+        </workstage>
+    </workflow>
+</workload>
