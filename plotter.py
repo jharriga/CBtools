@@ -27,7 +27,7 @@ def plot_stats(theFile, plotType, key1, key2, yUnits):
     clr = ['blue', 'green', 'red', 'cyan', 'magenta', 'yellow', 'black']
     ts_created = os.stat(theFile).st_ctime
     dt_created = dt.datetime.fromtimestamp(ts_created)
-    print "PROCESSING - plotting %s Statistics:", plotType
+    print "PROCESSING - plotting Statistics:", plotType
     print "> Reading data from: {}".format(theFile)
     print "> File creation time: ", str(dt_created)
     with open(theFile,'r') as csvfile:
