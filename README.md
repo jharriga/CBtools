@@ -3,10 +3,11 @@ Generates PDFs from COSbench CSV files
 
 Requires two arguments: -d (directory) and -t (plotType)
 Sample usage:
-$ ./plotter.py -d w169-hybrid/ -t throughput
-$ ./plotter.py -d w161-delete_write -t latency
+* $ ./plotter.py -d w169-hybrid/ -t throughput
+* $ ./plotter.py -d w161-delete_write -t latency
 
-Sample output:
+## Sample output:
+```
 $ ./plotter.py -d w161-delete_write -t latency
 PROCESSING - plotting Statistics: latency
 > Reading data from: w161-delete_write/s2-osd_failure.csv
@@ -30,3 +31,4 @@ Operation Column range:  5 7
 Operations found:  ['write', 'delete']
 > Number of time values:  961
 > Created PDF chart: w161-delete_write_s3-node_failure_LATENCY.pdf
+```
