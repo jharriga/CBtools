@@ -2,6 +2,8 @@
 Generates PDFs from COSbench CSV files
 
 Requires two arguments: -d (directory) and -t (plotType)
+
+Tested with python 2.7.5
 ## Sample usage:
 * $ ./plotter.py -d w169-hybrid/ -t throughput
 * $ ./plotter.py -d w161-delete_write -t latency
