@@ -3,7 +3,7 @@ Generates PDFs from COSbench CSV files
 
 Requires two arguments: -d (directory) and -t (plotType)
 
-NOTE: exclude CSV files ending with "-worker.csv" results from 'init' stages, since they are empty
+NOTE: excludes CSV files ending with "-worker.csv" AND results from 'init' stages, since they are empty
 
 Tested with python 2.7.5
 ## Sample usage:
