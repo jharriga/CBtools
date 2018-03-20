@@ -43,8 +43,8 @@ def plot_stats(theFile, plotType, key1, key2, yUnits):
         opLabel = []
         for colNum in range(colIndex1, colIndex2, 1):
             opLabel.append(header2[colNum])
-        print "Operation Column range: ", colIndex1, colIndex2
-        print "Operations found: ", opLabel   # array of operation labels
+        print "> Operation Column range: ", colIndex1, colIndex2
+        print "> Operations found: ", opLabel   # array of operation labels
 # Initialize the opStats 2D array - holds table of statistics
 #   2D array structure is opStats[opLabel#][row#]
         numLabels=len(opLabel)
