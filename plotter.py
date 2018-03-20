@@ -144,10 +144,17 @@ if __name__ == "__main__":
         print "Supported types are: latency, throughput"
         sys.exit()
 # Cmdline args look good
-# Issue the plotting function for each CSV file found in the args.dir
-    for file in list(glob.glob(args.dir+'/s?-*_failure.csv')):
-        plot_stats(file, plot, label1, label2, units)
-# wait for user input
+# Call the plotting function for CSV files found in the args.dir
+#    exclude the CSV files which end with "-worker.csv"
+#    and exclude results from 'init' stages since they are empty
+    for file in list(glob.glob(args.dir+'/s?-*.csv')):
+        if (file.find("-worker.csv") == -1) and (file.find("-init_") == -1):
+            print "Plotting CSV file: ", file
+            plot_stats(file, plot, label1, label2, units)
+        else:
+            print "Skipping CSV file: ", file
+
+# Wait for user input
 #        os.system('read -s -n 1 -p "Press any key to continue..."')
 #        print
 
