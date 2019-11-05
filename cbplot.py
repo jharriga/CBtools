@@ -1,7 +1,7 @@
 #!/usr/bin/python
 #
-# plotter.py
-# Reads COSbench CSV files and produces PDF file for each workstage
+# cbplot.py
+# Reads COSbench CSV files and produces PNG file for each workstage
 # Supports plot types of latency and throughput
 # Uses 'argparse' to print help usage info
 #########################################################
