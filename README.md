@@ -1,5 +1,19 @@
-# COSbenchPLOT
-Generates PDFs from COSbench CSV files
+# CBtools
+COSbench result post-processing tools
+
+# cbparser
+Generates COSbench General Report from COSbench CSV files
+
+Requires one argument: -d (directory)
+
+Tested with python 2.7.5
+## Sample usage:
+* $ ./cbparser.py -d w169-hybrid/
+
+Produces file ...
+
+# cbplot
+Generates PNGs from COSbench CSV files
 
 Requires two arguments: -d (directory) and -t (plotType)
 
