@@ -27,7 +27,6 @@ def plot_stats(theFile, plotType, key1, key2, yUnits):
     clr = ['blue', 'green', 'red', 'cyan', 'magenta', 'yellow', 'black']
     ts_created = os.stat(theFile).st_ctime
     dt_created = dt.datetime.fromtimestamp(ts_created)
-    
     print "PROCESSING - plotting Statistics:", plotType
     print "> Reading data from: {}".format(theFile)
     print "> File creation time: ", str(dt_created)
@@ -59,9 +58,12 @@ def plot_stats(theFile, plotType, key1, key2, yUnits):
         if numLabels > numClrs:
             print "Too many operations %d. MAX of %d . Exiting", numLabels, numClrs
             sys.exit()
+# Record the number of columns expected in every row
+        numColumns = len(header2)
 # NOW we are ready to read the actual statistics
         incrDay = int(0)        # increments timestamp on 24hr period
         rowCntr = int(0)        # outer loop counter - rows
+        naCntr = int(0)         # counts number of ignored samples/rows
 ##        totValue = [0.0, 0.0, 0.0, 0.0]        # calculating average
 # initialize the array which contains averages
         for i in range (numLabels):
@@ -76,20 +78,35 @@ def plot_stats(theFile, plotType, key1, key2, yUnits):
                     incrDay += 1            # add a day
                     print ">* Adding a day at: ", str(this)
             date = this + dt.timedelta(days=incrDay) 
-            time.append(date)
+##            time.append(date)
 
-            colCntr = int(0)           # inner loop counter - columns
-            for column in range(colIndex1, colIndex2, 1):
-                value = float(row[column])
-                opStats[colCntr].append(value)
-                totValue[colCntr] = totValue[colCntr] + value
-                colCntr += 1
+# Ensure this row has the expected number of columns
+            if len(row) == numColumns:
+                print "> rowCntr: ", str(rowCntr)   # DEBUG
+                time.append(date)
+                colCntr = int(0)           # inner loop counter - columns
+                for column in range(colIndex1, colIndex2, 1):
+# ignore bad (or empty) samples
+                    if row[column] == 'N/A':
+                        naCntr += 1
+                        break              # exit FOR column in range loop
+                    else:
+                        value = float(row[column])
+                        opStats[colCntr].append(value)
+                        totValue[colCntr] = totValue[colCntr] + value
+                        colCntr += 1
+            else:
+                naCntr += 1
+                print "> row number skipped: ", str(rowCntr)  # DEBUG
+##                break           
+
 
             prev=this.hour
             rowCntr += 1
 
     xticks=len(time)                # number of samples
-    print "> Number of time values: ", str(xticks)
+    print "> Number of valid time values: ", str(xticks)
+    print "> Number of ignored samples: ", str(naCntr)
 
     fig = plt.figure(figsize=(18,7))
     ax1 = fig.add_subplot(111)
@@ -116,11 +133,14 @@ def plot_stats(theFile, plotType, key1, key2, yUnits):
     basenm=os.path.basename(theFile)
 # strips off the final "/" if its there
     pathnm=os.path.dirname(theFile)
-# grab the tail of the path and prepend it to the PDF fname       
+# grab the tail of the path and prepend it to the PLOT fname   
     prepend=os.path.basename(pathnm)
-    fname=prepend+'_'+basenm.split('.')[0]+'_'+plotType.upper()+'.pdf'
-    plt.savefig(fname, format='pdf', dpi=1000)
-    print('> Created PDF chart: '+fname)
+    fname=prepend+'_'+basenm.split('.')[0]+'_'+plotType.upper()+'.png'
+    plt.savefig(fname, format='png', dpi=1000)
+    print('> Created PNG chart: '+fname)
+#    fname=prepend+'_'+basenm.split('.')[0]+'_'+plotType.upper()+'.pdf'
+#    plt.savefig(fname, format='pdf', dpi=1000)
+#    print('> Created PDF chart: '+fname)
 # END plot_stats Function
 
 if __name__ == "__main__":
@@ -162,8 +182,8 @@ if __name__ == "__main__":
         else:
             print "Skipping CSV file: ", file
 
-# Wait for user input - DEBUG
+# Wait for user input
 #        os.system('read -s -n 1 -p "Press any key to continue..."')
-#        print
+#        print  
 
 # END
