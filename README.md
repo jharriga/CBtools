@@ -21,5 +21,5 @@ NOTE: excludes CSV files ending with "-worker.csv" AND results from 'init' stage
 
 Tested with python 2.7.5
 ## Sample usage:
-* $ ./CBplot.py -d archive/w19-cluster-fill20 -t throughput
 * $ ./CBplot.py -d archive/w21-hybridSS -t throughput
+* $ ./CBplot.py -d archive/w21-hybridSS -t latency
