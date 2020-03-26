@@ -1,0 +1,15 @@
+
+BASIC INFO
+ID: w8	Name: PREPARE20	State: finished 
+Submitted At: 2019-07-25 13:34:22  Started At:  2019-07-25 13:34:22  Stopped At:  2019-07-25 13:49:44
+
+
+GENERAL REPORT
+Op-Name        Op-Count  Byte-Count  Avg-ResTime  Avg-ProcTime  Throughput  Bandwidth    Succ-Ratio
+prepare-write  28520     1.83 GB     31.89 ms     31.09 ms      31.18 op/s  2.0 MB/s     100%      
+init-write     0         0.0 bytes   N/A ms       N/A ms        0 op/s      0.0 bytes/s  N/A       
+
+RESTIME (RT) DETAILS
+Op-Name        60%-ResTime  80%-ResTime  90%-ResTime  95%-ResTime  99%-ResTime  100%-ResTime
+prepare-write  30           40           50           60           90           880         
+init-write     N/A          N/A          N/A          N/A          N/A          N/A         
