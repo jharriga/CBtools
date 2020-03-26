@@ -1,0 +1,2 @@
+Op-Type,Sample-Type,Op-Count,Byte-Count,Avg-ResTime,Avg-ProcTime,Throughput,Bandwidth,Succ-Ratio
+cleanup,delete,28520,0,16.82,16.82,59.41,0,100%
