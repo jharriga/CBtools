@@ -1,0 +1,22 @@
+Id,Name,Submitted-At,Started-At,Stopped-At,Op-Info,State,Detailed State
+w1,PREPARE-cluster-fill,2019-07-25 11:26:37,2019-07-25 11:26:37,2019-07-25 11:27:20,init prepare cleanup dispose,finished,queuing @ 2019-07-25 11:26:37,processing @ 2019-07-25 11:26:37,finished @ 2019-07-25 11:27:20
+w2,WRITE-cluster-fill,2019-07-25 11:43:01,2019-07-25 11:43:01,2019-07-25 11:43:39,init write cleanup dispose,finished,queuing @ 2019-07-25 11:43:01,processing @ 2019-07-25 11:43:01,finished @ 2019-07-25 11:43:39
+w3,PREPARE-cluster-fill,2019-07-25 11:54:34,2019-07-25 11:54:34,2019-07-25 11:54:55,init prepare,finished,queuing @ 2019-07-25 11:54:34,processing @ 2019-07-25 11:54:34,finished @ 2019-07-25 11:54:55
+w4,EMPTY-cluster-fill,2019-07-25 12:10:58,2019-07-25 12:10:58,2019-07-25 12:11:16,cleanup dispose,finished,queuing @ 2019-07-25 12:10:58,processing @ 2019-07-25 12:10:58,finished @ 2019-07-25 12:11:16
+w5,WRITE-cluster-fill,2019-07-25 12:13:12,2019-07-25 12:13:12,2019-07-25 12:13:51,init write cleanup dispose,finished,queuing @ 2019-07-25 12:13:12,processing @ 2019-07-25 12:13:12,finished @ 2019-07-25 12:13:51
+w6,WRITE-cluster-fill,2019-07-25 12:15:45,2019-07-25 12:15:45,2019-07-25 12:16:08,init write,finished,queuing @ 2019-07-25 12:15:45,processing @ 2019-07-25 12:15:45,finished @ 2019-07-25 12:16:08
+w7,EMPTY-cluster-fill,2019-07-25 13:30:12,2019-07-25 13:30:12,2019-07-25 13:30:28,cleanup dispose,finished,queuing @ 2019-07-25 13:30:12,processing @ 2019-07-25 13:30:12,finished @ 2019-07-25 13:30:28
+w8,PREPARE20-cluster-fill,2019-07-25 13:34:22,2019-07-25 13:34:22,2019-07-25 13:49:44,init prepare,finished,queuing @ 2019-07-25 13:34:22,processing @ 2019-07-25 13:34:22,finished @ 2019-07-25 13:49:44
+w9,EMPTY-cluster-fill,2019-07-25 14:16:47,2019-07-25 14:16:47,2019-07-25 14:26:31,cleanup dispose,finished,queuing @ 2019-07-25 14:16:47,processing @ 2019-07-25 14:16:47,finished @ 2019-07-25 14:26:31
+w10,WRITE-cluster-fill,2019-07-25 14:29:58,2019-07-25 14:29:58,2019-07-25 14:30:21,init write,finished,queuing @ 2019-07-25 14:29:58,processing @ 2019-07-25 14:29:58,finished @ 2019-07-25 14:30:21
+w11,EMPTY-cluster-fill,2019-07-25 14:34:00,2019-07-25 14:34:00,2019-07-25 14:34:18,cleanup dispose,finished,queuing @ 2019-07-25 14:34:00,processing @ 2019-07-25 14:34:00,finished @ 2019-07-25 14:34:18
+w12,WRITE-cluster-fill,2019-07-25 14:42:54,2019-07-25 14:42:54,2019-07-25 14:55:37,init write,finished,queuing @ 2019-07-25 14:42:54,processing @ 2019-07-25 14:42:54,finished @ 2019-07-25 14:55:37
+w13,EMPTY-cluster-fill,2019-07-25 15:01:33,2019-07-25 15:01:33,2019-07-25 15:09:42,cleanup dispose,finished,queuing @ 2019-07-25 15:01:33,processing @ 2019-07-25 15:01:33,finished @ 2019-07-25 15:09:42
+w14,s3-minio,2019-08-05 16:59:15,2019-08-05 16:59:15,2019-08-05 17:00:07,init prepare read write list delete cleanup dispose,cancelled,queuing @ 2019-08-05 16:59:15,processing @ 2019-08-05 16:59:15,cancelled @ 2019-08-05 17:00:07
+w15,s3-minio,2019-08-05 17:00:41,2019-08-05 17:00:41,2019-08-05 17:02:34,init prepare read write list delete cleanup dispose,finished,queuing @ 2019-08-05 17:00:41,processing @ 2019-08-05 17:00:41,finished @ 2019-08-05 17:02:34
+w16,s3-minio,2019-08-05 17:08:26,2019-08-05 17:08:26,2019-08-05 17:10:25,init prepare read write list delete cleanup dispose,finished,queuing @ 2019-08-05 17:08:26,processing @ 2019-08-05 17:08:26,finished @ 2019-08-05 17:10:25
+w17,s3-minio,2019-08-05 17:15:40,2019-08-05 17:15:40,2019-08-05 17:21:44,init prepare read write list delete cleanup dispose,finished,queuing @ 2019-08-05 17:15:40,processing @ 2019-08-05 17:15:40,finished @ 2019-08-05 17:21:44
+w18,s3-minio,2019-08-05 17:32:41,2019-08-05 17:32:41,2019-08-05 17:37:10,init prepare read write list delete cleanup dispose,finished,queuing @ 2019-08-05 17:32:41,processing @ 2019-08-05 17:32:41,finished @ 2019-08-05 17:37:10
+w19,cluster-fill20,2020-03-26 13:01:22,2020-03-26 13:01:22,2020-03-26 13:25:31,init prepare,finished,queuing @ 2020-03-26 13:01:22,processing @ 2020-03-26 13:01:22,finished @ 2020-03-26 13:25:31
+w20,hybridSS,2020-03-26 13:38:48,2020-03-26 13:38:48,2020-03-26 13:43:49,read list write delete,failed,queuing @ 2020-03-26 13:38:48,processing @ 2020-03-26 13:38:48,failed @ 2020-03-26 13:43:49
+w21,hybridSS,2020-03-26 13:47:42,2020-03-26 13:47:42,2020-03-26 13:52:43,read list write delete,finished,queuing @ 2020-03-26 13:47:42,processing @ 2020-03-26 13:47:42,finished @ 2020-03-26 13:52:43
