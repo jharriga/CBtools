@@ -124,6 +124,13 @@ def printFinalReport(out,workloadName):
 			arr.append(dict[key][int(i)])	
 		data.append(arr)
 	fd.close()
+        out.write("\nRESTIME (RT) DETAILS\n")
+        print "\nRESTIME (RT) DETAILS\n"
+        widths = [max(map(len, col)) for col in zip(*data)]
+        for row in data:
+                print "  ".join((val.ljust(width) for val, width in zip(row, widths)))
+                out.write("  ".join((val.ljust(width) for val, width in zip(row, widths))))
+                out.write("\n")
 
 
 def printRTInfo(out,workloadName):
@@ -277,8 +284,8 @@ if __name__ == "__main__":
 	# Print Tables
 	printBasicInfo(out,workloadName)
 	printFinalReport(out,workloadName)
-	printStageInfo(out,workloadName)
-	printRTInfo(out,workloadName)
+##	printStageInfo(out,workloadName)
+##	printRTInfo(out,workloadName)
 
         print "\nWrote report to: %s" %(output)
 out.close()
