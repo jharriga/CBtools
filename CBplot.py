@@ -1,6 +1,6 @@
 #!/usr/bin/python
 #
-# cbplot.py
+# CBplot.py
 # Reads COSbench CSV files and produces PNG file for each workstage
 # Supports plot types of latency and throughput
 # Uses 'argparse' to print help usage info
@@ -65,11 +65,11 @@ def plot_stats(theFile, plotType, key1, key2, yUnits):
         rowCntr = int(0)        # outer loop counter - rows
         naCntr = int(0)         # counts number of ignored samples/rows
 ##        totValue = [0.0, 0.0, 0.0, 0.0]        # calculating average
-# initialize the array which contains averages
+# Initialize the array which contains averages
         for i in range (numLabels):
             totValue.append(float(0.0))
 
-# parse all the remaining rows
+# Parse all the remaining rows
         for row in plots:
             cos_ts = dt.datetime.strptime(row[0],"%H:%M:%S")
             this = cos_ts.replace(year=dt_created.year, month=dt_created.month, day=dt_created.day)
@@ -77,36 +77,38 @@ def plot_stats(theFile, plotType, key1, key2, yUnits):
                 if (prev > this.hour):
                     incrDay += 1            # add a day
                     print ">* Adding a day at: ", str(this)
-            date = this + dt.timedelta(days=incrDay) 
-##            time.append(date)
+            date = this + dt.timedelta(days=incrDay)
 
-# Ensure this row has the expected number of columns
+# Ensure this row has the expected number of columns, otherwise skip it
             if len(row) == numColumns:
                 print "> rowCntr: ", str(rowCntr)   # DEBUG
-                time.append(date)
-                colCntr = int(0)           # inner loop counter - columns
+                naFound = bool(False)    # records when N/A value is read
                 for column in range(colIndex1, colIndex2, 1):
-# ignore bad (or empty) samples
+# Ignore/skip bad (or empty) sample rows
                     if row[column] == 'N/A':
-                        naCntr += 1
-                        break              # exit FOR column in range loop
-                    else:
+                        naFound = bool(True)
+                if naFound:
+                    naCntr += 1
+                    print "> Found N/A value, row number skipped: ", str(rowCntr)  # DEBUG
+                else:
+# All values appear valid, proceed
+                    time.append(date)
+                    colCntr = int(0)       # inner loop counter - columns
+                    for column in range(colIndex1, colIndex2, 1):
                         value = float(row[column])
                         opStats[colCntr].append(value)
                         totValue[colCntr] = totValue[colCntr] + value
                         colCntr += 1
             else:
                 naCntr += 1
-                print "> row number skipped: ", str(rowCntr)  # DEBUG
-##                break           
-
+                print "> Incorrect numColumns, row number skipped: ", str(rowCntr)  # DEBUG
 
             prev=this.hour
             rowCntr += 1
 
     xticks=len(time)                # number of samples
     print "> Number of valid time values: ", str(xticks)
-    print "> Number of ignored samples: ", str(naCntr)
+    print "> Number of ignored/skipped row samples: ", str(naCntr)
 
     fig = plt.figure(figsize=(18,7))
     ax1 = fig.add_subplot(111)
