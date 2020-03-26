@@ -8,7 +8,7 @@ Requires one argument: -d (directory)
 
 Tested with python 2.7.5
 ## Sample usage:
-* $ ./CBreport.py -d archive/w169-hybrid/
+* $ ./CBreport.py -d archive/w12-WRITE-cluster-fill
 
 Produces file ...
 
@@ -21,5 +21,5 @@ NOTE: excludes CSV files ending with "-worker.csv" AND results from 'init' stage
 
 Tested with python 2.7.5
 ## Sample usage:
-* $ ./CBplot.py -d archive/w169-hybrid/ -t throughput
-* $ ./CBplot.py -d archive/w161-delete_write -t latency
+* $ ./CBplot.py -d archive/w12-WRITE-cluster-fill -t throughput
+* $ ./CBplot.py -d archive/w12-WRITE-cluster-fill -t latency
