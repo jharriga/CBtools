@@ -1,0 +1,19 @@
+
+BASIC INFO
+ID: w21	Name: hybridSS	State: finished 
+Submitted At: 2020-03-26 13:47:42  Started At:  2020-03-26 13:47:42  Stopped At:  2020-03-26 13:52:43
+
+
+GENERAL REPORT
+Op-Name  Op-Count  Byte-Count  Avg-ResTime  Avg-ProcTime  Throughput  Bandwidth    Succ-Ratio
+read     14855     950.72 MB   7.7 ms       7.18 ms       49.52 op/s  3.17 MB/s    100%      
+write    4040      258.56 MB   30.26 ms     29.48 ms      13.47 op/s  861.87 KB/s  100%      
+list     2436      0.0 bytes   0.12 ms      0.12 ms       8.12 op/s   0.0 bytes/s  100%      
+delete   3315      0.0 bytes   18.59 ms     18.59 ms      11.05 op/s  0.0 bytes/s  100%      
+
+RESTIME (RT) DETAILS
+Op-Name  60%-ResTime  80%-ResTime  90%-ResTime  95%-ResTime  99%-ResTime  100%-ResTime
+read     10           20           20           20           30           80          
+write    40           40           50           60           70           110         
+list     10           10           10           10           10           10          
+delete   20           30           40           40           50           70          
