@@ -81,7 +81,7 @@ def plot_stats(theFile, plotType, key1, key2, yUnits):
 
 # Ensure this row has the expected number of columns, otherwise skip it
             if len(row) == numColumns:
-                print "> rowCntr: ", str(rowCntr)   # DEBUG
+##                print "> rowCntr: ", str(rowCntr)   # DEBUG
                 naFound = bool(False)    # records when N/A value is read
                 for column in range(colIndex1, colIndex2, 1):
 # Ignore/skip bad (or empty) sample rows
@@ -89,7 +89,7 @@ def plot_stats(theFile, plotType, key1, key2, yUnits):
                         naFound = bool(True)
                 if naFound:
                     naCntr += 1
-                    print "> Found N/A value, row number skipped: ", str(rowCntr)  # DEBUG
+                    print "> Found N/A value, row number skipped: ", str(rowCntr)
                 else:
 # All values appear valid, proceed
                     time.append(date)
@@ -101,7 +101,7 @@ def plot_stats(theFile, plotType, key1, key2, yUnits):
                         colCntr += 1
             else:
                 naCntr += 1
-                print "> Incorrect numColumns, row number skipped: ", str(rowCntr)  # DEBUG
+                print "> Incorrect numColumns, row number skipped: ", str(rowCntr)
 
             prev=this.hour
             rowCntr += 1
@@ -109,6 +109,10 @@ def plot_stats(theFile, plotType, key1, key2, yUnits):
     xticks=len(time)                # number of samples
     print "> Number of valid time values: ", str(xticks)
     print "> Number of ignored/skipped row samples: ", str(naCntr)
+    
+    if xticks == 0:
+        print "> No valid time values, no plot to generate"
+        return
 
     fig = plt.figure(figsize=(18,7))
     ax1 = fig.add_subplot(111)
