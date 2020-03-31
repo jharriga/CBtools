@@ -1,11 +1,10 @@
 # CBtools
 COSbench result post-processing tools
-NOTE: Requires numpy (# pip install numpy)
 
 # CBreport
 Generates COSbench General Report from COSbench CSV files
-Imports numpy
 Requires one argument: -d (directory)
+NOTE: Requires numpy (# pip install numpy)
 
 Tested with python 2.7.5
 ## Sample usage:
@@ -15,8 +14,8 @@ Produces file ...
 
 # CBplot
 Generates PNGs from COSbench CSV files
-Imports matplotlib
 Requires two arguments: -d (directory) and -t (plotType)
+NOTE: Requires matplotlib (# pip install matplotlib)
 
 NOTE: excludes CSV files ending with "-worker.csv" AND results from 'init' stages, since they are empty
 
