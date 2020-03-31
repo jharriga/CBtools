@@ -1,5 +1,6 @@
 # CBtools
 COSbench result post-processing tools
+NOTE: Requires numpy (# pip install numpy)
 
 # CBreport
 Generates COSbench General Report from COSbench CSV files
