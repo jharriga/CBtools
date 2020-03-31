@@ -12,6 +12,9 @@ import glob
 import argparse
 import datetime as dt
 import csv
+# Avoid "Could not open Display" error
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
 import matplotlib.dates as md
