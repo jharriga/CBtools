@@ -199,7 +199,7 @@ if __name__ == "__main__":
     fileList = []            # list of filenames to be plotted
 
 # check cmdline args
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(description='Produce COSbench plots')
     parser.add_argument('-d','--dir',help='Directory with COSbench csv files', required=True)
     parser.add_argument('-t','--type',help='type of plot (latency, throughput)', required=True)
     parser.add_argument('-n','--numSamples',help='number of samples per plot (def=5000)', required=False, default=5000, type=int)
