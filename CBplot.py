@@ -62,8 +62,10 @@ def createFiles(origFile, numRows, numFiles, dirName):
                 break        # leave the FOR lineCtr loop
             tmpObj.writerow(tmpbuf)
 
+        tmpFhandle.close()        # close the tmp csv file
         csvList.append(tmpFname)
 
+    csvInput.close()         # close the csv input file
     return csvList
 # END createFiles Function
 
@@ -190,6 +192,7 @@ def plot_stats(theFile, created, plotType, key1, key2, yUnits):
     fname=basenm.split('.')[0]+'_'+plotType.upper()+'.png'
     plt.savefig(fname, format='png', dpi=1000)
     print('> Created PNG chart: '+fname)
+    csvfile.close()              # cleanup
 # END plot_stats Function
 
 if __name__ == "__main__":
@@ -247,7 +250,9 @@ if __name__ == "__main__":
                 rowcnt = int(sum(1 for line in f) - 2)  # two header lines
                 NumPlots = int(rowcnt / MaxSamples) + (rowcnt % MaxSamples > 0)
                 print("Total rowcnt of %d: creating %d plots" % (rowcnt,NumPlots))
-                fileList = createFiles(file, MaxSamples, NumPlots, tmpDir) 
+                f.close()                # cleanup
+                
+            fileList = createFiles(file, MaxSamples, NumPlots, tmpDir) 
 
             for ifile in fileList:
                 plot_stats(ifile, dt_created, plot, colStart, colEnd, units)
