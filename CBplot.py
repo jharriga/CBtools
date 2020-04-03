@@ -200,9 +200,9 @@ if __name__ == "__main__":
 
 # check cmdline args
     parser = argparse.ArgumentParser(description='Produce COSbench plots')
-    parser.add_argument('-d','--dir',help='Directory with COSbench csv files', required=True)
-    parser.add_argument('-t','--type',help='type of plot (latency, throughput)', required=True)
-    parser.add_argument('-n','--numSamples',help='number of samples per plot (def=5000)', required=False, default=5000, type=int)
+    parser.add_argument('-d','--dir',help='required: Directory with COSbench csv files', required=True)
+    parser.add_argument('-t','--type',help='required: type of plot (latency, throughput)', required=True)
+    parser.add_argument('-n','--numSamples',help='optional: number of samples per plot (defaults to 5000)', required=False, default=5000, type=int)
     args = parser.parse_args()
 # check if arg1 exists and is directory
     if os.path.isdir(args.dir) is False:
