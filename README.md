@@ -16,7 +16,7 @@ Produces file ...
 # CBplot
 Generates PNGs from COSbench CSV files  
 Requires two arguments: -d (directory) and -t (plotType)  
-Optional arg: -n (MaxSamples)
+Optional arg: -n (MaxSamples)  
 USAGE: $ ./CBplot.py --help  
 NOTE: Requires matplotlib (# pip install matplotlib)  
 
