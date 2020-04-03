@@ -11,7 +11,7 @@ NOTE: Requires numpy (# pip install numpy)
 ## Sample usage:
 * $ ./CBreport.py -d archive/w21-hybridSS
 
-Produces file ...
+Produces file "w21-hybridSS-CBreport.txt"
 
 # CBplot
 Generates PNGs from COSbench CSV files  
