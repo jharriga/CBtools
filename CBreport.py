@@ -267,7 +267,7 @@ def printStageInfo(out,workloadName):
 # MAIN ###################
 if __name__ == "__main__":
       	parser = argparse.ArgumentParser(description='Generate COSbench Report')
-        parser.add_argument('-d','--archive', help='Archive Directory for CosBench Workload Result', required=True)
+        parser.add_argument('-d','--archive', help='required: Archive Directory for CosBench Workload Result', required=True)
         arguments = vars(parser.parse_args())
 	param=arguments['archive']
 	var = param.split('/')
