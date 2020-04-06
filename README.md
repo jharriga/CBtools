@@ -16,7 +16,7 @@ Produces file "w21-hybridSS-CBreport.txt"
 # CBplot
 Generates PNGs from COSbench CSV files  
 Requires two arguments: -d (directory) and -t (plotType)  
-Optional arg: -n (MaxSamples. Default value: 5000)  
+Optional arg: -n (MaxSamples)  <-- Default value: 5000  
 USAGE: $ ./CBplot.py --help  
 NOTE: Requires matplotlib (# pip install matplotlib)  
 
